@@ -129,4 +129,10 @@ app.add_handler(CommandHandler("stats", stats))
 app.add_handler(CommandHandler("logs", logs))
 app.add_handler(MessageHandler(filters.ALL & ~filters.COMMAND, force_join))
 
-app.run_polling()
+from telegram.ext import Application
+
+app = Application.builder().token(BOT_TOKEN).build()
+
+if __name__ == "__main__":
+    app.run_polling()
+    
